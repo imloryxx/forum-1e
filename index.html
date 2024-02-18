@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum della Classe XYZ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1560996025-95b43d543770?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #4d4d4d; /* Dark Gray */
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #f2f2f2; /* Light Gray */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            margin-top: 20px;
+        }
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4d4d4d; /* Dark Gray */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #666666; /* Gray */
+        }
+        .problem {
+            background-color: #f2f2f2; /* Light Gray */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forum della Classe XYZ</h1>
+
+        <h2>Regole del Forum</h2>
+        <ul>
+            <li>Mantenere l'anonimato: Non condividere informazioni personali.</li>
+            <li>Rispetto: Nessun insulto, offesa o linguaggio inappropriato.</li>
+            <li>Pertinenza: Mantenere le discussioni relative ai problemi della classe.</li>
+        </ul>
+
+        <h2>Categorie</h2>
+        <form id="problemForm">
+            <label for="category">Scegli una categoria:</label>
+            <select name="category" id="category" onchange="updateForm()">
+                <option value="compiti">Domande sui Compiti</option>
+                <option value="insegnamento">Discussioni sull'Insegnamento</option>
+                <option value="feedback">Feedback e Suggerimenti</option>
+                <option value="problemi">Problemi di Classe</option>
+            </select>
+            <br>
+            <div id="extraFields"></div>
+            <label for="problem">Descrivi il tuo problema:</label>
+            <textarea name="problem" id="problem"></textarea>
+            <br>
+            <input type="submit" value="Invia">
+        </form>
+
+        <h2>Problemi Inviati</h2>
+        <div id="problemList"></div>
+    </div>
+
+    <script>
+        function updateForm() {
+            var category = document.getElementById('category').value;
+            var extraFields = document.getElementById('extraFields');
+            extraFields.innerHTML = '';
+
+            if (category === 'compiti') {
+                var label = document.createElement('label');
+                label.textContent = 'Scegli una materia:';
+                extraFields.appendChild(label);
+
+                var select = document.createElement('select');
+                select.name = 'materia';
+                select.id = 'materia';
+                ['Matematica', 'Scienze', 'Chimica', 'Fisica', 'Storia', 'Italiano', 'TTRG', 'Diritto', 'Geografia'].forEach(function(materia) {
+                    var option = document.createElement('option');
+                    option.value = materia;
+                    option.textContent = materia;
+                    select.appendChild(option);
+                });
+                extraFields.appendChild(select);
+                extraFields.appendChild(document.createElement('br'));
+            } else if (category === 'insegnamento') {
+                var label = document.createElement('label');
+                label.textContent = 'Scrivi il nome del prof:';
+                extraFields.appendChild(label);
+
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'prof';
+                input.id = 'prof';
+                extraFields.appendChild(input);
+                extraFields.appendChild(document.createElement('br'));
+            }
+        }
+
+        document.getElementById('problemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var category = document.getElementById('category').value;
+            var problem = document.getElementById('problem').value;
+
+            var problemItem = document.createElement('div');
+            problemItem.className = 'problem';
+            problemItem.textContent = category + ': ' + problem;
+
+            if (category === 'compiti') {
+                var materia = document.getElementById('materia').value;
+                problemItem.textContent += ' (Materia: ' + materia + ')';
+            } else if (category === 'insegnamento') {
+                var prof = document.getElementById('prof').value;
+                problemItem.textContent += ' (Prof: ' + prof + ')';
+            }
+
+            document.getElementById('problemList').appendChild(problemItem);
+        });
+
+        updateForm();
+    </script>
+</body>
+</html>
