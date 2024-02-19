@@ -74,9 +74,7 @@
 </head>
 <body>
     <div class="container">
-    </HEAD>
         <h1>Forum della Classe 1°E info</h1>
-
 
         <h2>Regole del Forum</h2>
         <ul>
@@ -135,8 +133,8 @@
 
                 var input = document.createElement('input');
                 input.type = 'text';
-                input.name = 'prof';
-                input.id = 'prof';
+                input.name = 'professore';
+                input.id = 'professore';
                 extraFields.appendChild(input);
                 extraFields.appendChild(document.createElement('br'));
             }
@@ -156,8 +154,8 @@
                 var materia = document.getElementById('materia').value;
                 formData.append('materia', materia);
             } else if (category === 'insegnamento') {
-                var prof = document.getElementById('prof').value;
-                formData.append('prof', prof);
+                var prof = document.getElementById('professore').value;
+                formData.append('professore', prof);
             }
 
             fetch('/submitForm', {
