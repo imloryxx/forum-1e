@@ -38,7 +38,7 @@ public class FormSubmitServlet extends HttpServlet {
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("tuoindirizzoemail@gmail.com", "tuapassword");
+                return new PasswordAuthentication("lorytognati88@gmail.com", "Ebola@2009");
             }
         });
 
