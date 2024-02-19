@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forum della Classe</title>
+    <title>Forum della Classe 1°E info</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -74,7 +74,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Forum della Classe XYZ</h1>
+        <h1>Forum della Classe 1°E info</h1>
 
         <h2>Regole del Forum</h2>
         <ul>
@@ -146,19 +146,34 @@
             var category = document.getElementById('category').value;
             var problem = document.getElementById('problem').value;
 
-            var problemItem = document.createElement('div');
-            problemItem.className = 'problem';
-            problemItem.textContent = category + ': ' + problem;
+            var formData = new FormData();
+            formData.append('category', category);
+            formData.append('problem', problem);
 
             if (category === 'compiti') {
                 var materia = document.getElementById('materia').value;
-                problemItem.textContent += ' (Materia: ' + materia + ')';
+                formData.append('materia', materia);
             } else if (category === 'insegnamento') {
                 var prof = document.getElementById('prof').value;
-                problemItem.textContent += ' (Prof: ' + prof + ')';
+                formData.append('prof', prof);
             }
 
-            document.getElementById('problemList').appendChild(problemItem);
+            fetch('/submitForm', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Richiesta inviata con successo');
+                } else {
+                    alert('Errore nell\'invio della richiesta');
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+                alert('Errore nell\'invio della richiesta');
+            });
         });
 
         updateForm();
