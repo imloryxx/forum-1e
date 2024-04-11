@@ -1,4 +1,209 @@
 <!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Sito più Bello del Mondo</title>
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Stili globali */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #003580;
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #003580;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slide {
+      flex: 0 0 auto;
+      width: 60%;
+      margin-right: 20px;
+      scroll-snap-align: start;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .caption {
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    footer {
+      background-color: #003580;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #map {
+      height: 400px;
+      margin: 40px auto;
+      max-width: 800px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Benvenuto nel Sito più Bello del Mondo!</h1>
+    <p>Scopri le nostre fantastiche offerte e preparati per un'avventura indimenticabile.</p>
+  </header>
+
+  <!-- Modulo Iscrizione Newsletter -->
+  <section id="newsletter">
+    <h2>Iscriviti alla nostra newsletter</h2>
+    <form action="#" method="post">
+      <input type="email" name="email" placeholder="Inserisci la tua email" required>
+      <button type="submit">Iscriviti</button>
+    </form>
+  </section>
+
+  <!-- Carosello Immagini -->
+  <section id="carousel">
+    <h2>Esplora le nostre destinazioni</h2>
+    <div class="carousel-container">
+      <div class="slide">
+        <img src="img/destination1.jpg" alt="Destinazione 1">
+        <div class="caption">Destinazione 1</div>
+      </div>
+      <div class="slide">
+        <img src="img/destination2.jpg" alt="Destinazione 2">
+        <div class="caption">Destinazione 2</div>
+      </div>
+      <div class="slide">
+        <img src="img/destination3.jpg" alt="Destinazione 3">
+        <div class="caption">Destinazione 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu a Tendina -->
+  <section id="dropdown-menu">
+    <h2>Esplora le nostre categorie</h2>
+    <select onchange="location = this.value;">
+      <option value="#">Seleziona una categoria</option>
+      <option value="#">Destinazioni</option>
+      <option value="#">Hotel</option>
+      <option value="#">Ristoranti</option>
+      <option value="#">Attività</option>
+    </select>
+  </section>
+
+  <!-- Galleria Fotografica -->
+  <section id="photo-gallery">
+    <h2>Scorri le nostre foto</h2>
+    <div class="gallery">
+      <img src="img/gallery1.jpg" alt="Foto 1">
+      <img src="img/gallery2.jpg" alt="Foto 2">
+      <img src="img/gallery3.jpg" alt="Foto 3">
+      <img src="img/gallery4.jpg" alt="Foto 4">
+      <img src="img/gallery5.jpg" alt="Foto 5">
+    </div>
+  </section>
+
+  <!-- Mappa Interattiva -->
+  <section id="map">
+    <!-- Inserisci qui la mappa interattiva -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Il Sito più Bello del Mondo. Tutti i diritti riservati.</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Forum della Classe 1°E info</title>
